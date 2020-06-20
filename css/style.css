@@ -42,6 +42,9 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 68.5em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -57,8 +60,12 @@ body {
   max-width: 120rem;
   margin: 8rem auto;
   background-color: var(--color-grey-light-2);
-  box-shadow: var(--shadow-dark);
-  min-height: 50rem; }
+  box-shadow: var(--shadow-dark); }
+  @media only screen and (max-width: 75em) {
+    .container {
+      max-width: 100%;
+      width: 100%;
+      margin: 0; } }
 
 .header {
   font-size: 1.4rem;
@@ -71,6 +78,9 @@ body {
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   display: flex;
@@ -78,6 +88,9 @@ body {
   justify-content: space-between;
   background-color: var(--color-grey-dark-1);
   flex: 0 0 18%; }
+  @media only screen and (max-width: 56.25em) {
+    .sidebar {
+      flex-direction: row; } }
 
 .main {
   background-color: #fff;
@@ -89,6 +102,12 @@ body {
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line); }
+  @media only screen and (max-width: 56.25em) {
+    .detail {
+      padding: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .detail {
+      flex-direction: column; } }
 
 .description {
   background-color: #fff;
@@ -96,9 +115,20 @@ body {
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .description {
+      padding: 2rem;
+      margin-right: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .description {
+      margin-right: 0;
+      margin-bottom: 3rem; } }
 
 .user-reviews {
-  flex: 1; }
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 .logo {
   height: 3.25rem;
@@ -182,10 +212,19 @@ body {
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .side-nav {
+      display: flex;
+      flex: 1;
+      margin: 0; } }
   .side-nav__item {
     position: relative; }
     .side-nav__item:not(:last-child) {
       margin-bottom: .5rem; }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__item {
+        flex: 1;
+        margin: 0; } }
   .side-nav__item::before {
     content: "";
     position: absolute;
@@ -211,17 +250,34 @@ body {
     z-index: 10;
     display: flex;
     align-items: center; }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        justify-content: center;
+        padding: 2rem; } }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        flex-direction: column;
+        padding: 1.5rem .5rem; } }
   .side-nav__icon {
     width: 1.75rem;
     height: 1.75rem;
     fill: currentColor;
     margin-right: 2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__icon {
+        margin-right: 0;
+        margin-bottom: .7rem;
+        width: 1.5rem;
+        height: 1.5rem; } }
 
 .legal {
   font-size: 1.2rem;
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .legal {
+      display: none; } }
 
 .gallery {
   display: flex; }
@@ -239,6 +295,10 @@ body {
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem; }
+    @media only screen and (max-width: 37.5em) {
+      .overview__heading {
+        font-size: 1.8rem;
+        padding: 1.25rem; } }
   .overview__stars {
     margin-right: auto;
     display: flex;
@@ -278,8 +338,13 @@ body {
   background-color: transparent;
   cursor: pointer;
   transition: all .2s; }
+  .btn-inline span {
+    margin-left: 3px;
+    transition: margin-left .2s; }
   .btn-inline:hover {
     color: var(--color-grey-dark-1); }
+    .btn-inline:hover span {
+      margin-left: 8px; }
   .btn-inline:focus {
     outline: none;
     animation: pulsate 1s infinite; }
@@ -317,6 +382,8 @@ body {
   align-items: center; }
   .recommend__count {
     margin-right: auto; }
+  .recommend__friends {
+    display: flex; }
   .recommend__photo {
     box-sizing: content-box;
     width: 4.5rem;
@@ -324,15 +391,26 @@ body {
     border-radius: 50%;
     border: 2px solid #fff; }
     .recommend__photo:not(:last-child) {
-      margin-right: -1.5rem; }
+      margin-right: -2rem; }
 
 .review {
   background-color: #fff;
   box-shadow: var(--shadow-light);
   padding: 3rem;
-  margin-bottom: 3.5rem; }
+  margin-bottom: 3.5rem;
+  position: relative; }
+  @media only screen and (max-width: 56.25em) {
+    .review {
+      padding: 2rem;
+      margin-bottom: 3rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .review {
+      padding: 1rem;
+      margin-bottom: 3rem; } }
   .review__text {
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    z-index: 2;
+    position: relative; }
   .review__user {
     display: flex;
     align-items: center; }
@@ -355,6 +433,67 @@ body {
     color: var(--color-primary);
     font-size: 2.2rem;
     font-weight: 300; }
+  .review::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.5rem;
+    left: 0;
+    overflow: hidden;
+    z-index: 2;
+    font-size: 20rem;
+    color: var(--color-grey-light-2);
+    font-family: sans-serif;
+    line-height: 1; }
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center; }
+  @media only screen and (max-width: 56.25em) {
+    .cta {
+      padding: 2.5rem 0; } }
+  .cta__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2.5rem; }
+
+.btn {
+  font-size: 1.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  border-radius: 100px;
+  border: none;
+  padding: 1rem 2rem;
+  color: var(--color-grey-light-1);
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative; }
+  .btn:hover {
+    background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark)); }
+  .btn:focus {
+    outline: none;
+    animation: pulsate 1s infinite; }
+  .btn > * {
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    transition: all .2s; }
+  .btn:hover .btn__visible {
+    transform: translateY(100%); }
+  .btn:hover .btn__invisible {
+    top: 0; }
+  .btn__visible {
+    padding: 1.5rem 7rem; }
+  .btn__invisible {
+    display: inline-block;
+    position: absolute;
+    padding: 2rem 0;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: -100%; }
 
 @keyframes pulsate {
   0% {
